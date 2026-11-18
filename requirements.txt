@@ -1,0 +1,36 @@
+# Pinned package versions for lowlight-seg.
+#
+# Install PyTorch FIRST (CPU or CUDA build) using the command from https://pytorch.org
+# (see README "Setup"), then run:  pip install -r requirements.txt
+# PyTorch and torchvision are deliberately not listed here, because the right build
+# depends on your hardware (decision D8 in docs/PROGRESS.md).
+#
+# Status: numpy, pyyaml, pytest and ruff were installed and tested in M0. The others are
+# the latest PyPI versions on 2026-11-19 and are verified when first used (decision D9).
+
+# Core maths and config
+numpy==2.5.5
+pyyaml==6.0.3
+
+# Image processing
+opencv-python-headless==5.1.0.95
+scikit-image==0.26.0
+Pillow==13.0.0
+
+# Models
+transformers==5.23.0
+
+# Data, statistics, selector classifier
+pandas==3.1.1
+scipy==1.18.1
+scikit-learn==1.9.1
+joblib==1.6.0
+
+# Plots, progress bars, demo
+matplotlib==3.11.2
+tqdm==4.70.1
+streamlit==1.67.0
+
+# Testing and code quality
+pytest==9.2.0
+ruff==0.17.5

@@ -1,0 +1,22 @@
+# Default settings shared by every experiment.
+# Experiment configs in configs/experiments/ are merged on top of this file.
+# Relative paths are relative to the repository root.
+
+seed: 42
+device: auto              # auto | cpu | cuda
+inference_short_side: 512 # 1024 on GPU for final runs
+sliding_window: false
+paths:
+  data_root: data
+  results_root: results
+  weights_root: weights
+datasets:
+  acdc_root: data/acdc
+  cityscapes_root: data/cityscapes
+  darkzurich_root: data/darkzurich
+  nightcity_root: data/nightcity   # no-account real-night dataset (decision D28)
+enhance_defaults:
+  gamma: {gamma: 0.5}
+  clahe: {clip_limit: 2.0, tile_grid: 8}
+  adaptive_gamma: {target_mean: 0.45, min_gamma: 0.25, max_gamma: 1.0}
+viz_sample_ids: []        # filled after first data check

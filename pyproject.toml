@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lowlight"
+version = "0.1.0"
+description = "Improving image segmentation in low-light conditions using lightweight image enhancement"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Abhay Kumar Dwivedi" }]
+# Dependencies are pinned in requirements.txt (install that first), not here.
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+# Slow tests (that download and run real models) are skipped unless you run `pytest -m slow`.
+addopts = "-m 'not slow'"
+markers = ["slow: loads real models or datasets; skipped by default"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+# Ruff also formats code blocks inside Markdown. docs/ is excluded: PID.md must stay word for
+# word, and the explanation files use hand-aligned teaching snippets.
+extend-exclude = ["notebooks", "docs"]
+
+[tool.ruff.lint]
+# E/W = style errors, F = real bugs (unused names etc.), I = import order,
+# B = common bug patterns, UP = modern Python syntax, NPY = NumPy-specific checks.
+select = ["E", "W", "F", "I", "B", "UP", "NPY"]
+
+[tool.ruff.lint.per-file-ignores]
+# The notebook cells are stored as long text strings (Markdown and Colab code), not package code.
+"scripts/build_notebooks.py" = ["E501"]

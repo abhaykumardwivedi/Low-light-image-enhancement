@@ -1,0 +1,14 @@
+# Synthetic darkening levels (PID Section 9.2).
+# Formula (values in 0-1): d = alpha * x ** g, then optional Poisson noise with `peak`
+# photons and Gaussian read noise with std `sigma`.
+#
+# STATUS: starting values from the PID. NOT YET CALIBRATED.
+# scripts/calibrate_darkness.py (M2) will adjust alpha and g so that L3 and L4 bracket
+# the real ACDC night brightness, and will rewrite this note.
+
+levels:
+  L0: {alpha: 1.00, g: 1.0, peak: null, sigma: null}  # original, no change
+  L1: {alpha: 0.70, g: 1.5, peak: 400, sigma: 0.005}  # dusk
+  L2: {alpha: 0.50, g: 2.0, peak: 200, sigma: 0.010}  # poorly lit street
+  L3: {alpha: 0.35, g: 2.5, peak: 100, sigma: 0.015}  # night with street lights
+  L4: {alpha: 0.20, g: 3.0, peak: 50, sigma: 0.020}   # very dark

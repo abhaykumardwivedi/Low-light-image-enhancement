@@ -1,0 +1,46 @@
+# --- Python and tools ---
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+build/
+dist/
+
+# --- Editors and OS ---
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# --- Datasets (large, non-commercial licences: never commit) ---
+data/
+
+# --- Model weights and the trained selector ---
+weights/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.joblib
+
+# --- Results: keep CSV, JSON and Markdown; ignore images and bulky arrays ---
+results/**/*.png
+results/**/*.jpg
+results/**/*.pdf
+results/**/cm/
+results/**/*.npy
+results/**/*.npz
+results/**/run.log
+
+# --- Demo sample images copied from local datasets ---
+app/samples/
+
+# --- Archives (dataset zips must never be committed) ---
+*.zip
+*.tar
+*.tar.gz
